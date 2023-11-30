@@ -1,0 +1,13 @@
+@media screen and (max-width: 992px) {
+    .owl-item.cloned{
+      display: none !important;
+    }
+    .owl-stage{
+      transform:none !important;
+      transition: none !important;
+      width: auto !important;
+    }
+    .owl-item{
+      width: auto !important;
+    }
+  }

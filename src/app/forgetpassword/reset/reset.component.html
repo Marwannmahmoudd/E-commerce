@@ -1,0 +1,19 @@
+<div class="container">
+<div class="shadow p-5 my-4">
+    <h4 class="pb-3">Verify Reset Code:</h4>
+    <form (ngSubmit)="resetpass(resetCode)"  [formGroup]="resetCode">
+        <label>SendCode:</label>
+        <input class="form-control mb-2" type="text" id="resetCode" formControlName="resetCode">
+        <div *ngIf="resetCode.get('resetCode')?.errors && resetCode.get('resetCode')?.touched" class="alert alert-danger" >
+            <p class="m-0" *ngIf="resetCode.get('resetCode')?.getError('required')">resetCode is required</p>
+        </div>
+        <button [disabled]="resetCode.status == 'INVALID'" type="submit" class="btn ms-auto d-block btn-success">
+            <span *ngIf="ooh == false"><i class="fas fa-spinner fa-spin"></i></span>
+           <span *ngIf="ooh == true" > Send Code</span>
+        </button>
+        <div *ngIf="erorr" class="alert alert-danger mt-4 text-center">
+            {{erorr}}
+            </div>
+        </form>
+    </div>
+</div>

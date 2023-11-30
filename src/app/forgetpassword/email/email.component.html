@@ -1,0 +1,23 @@
+<div class="container">
+
+<div class="   shadow p-5 my-4">
+    <h3 class="pb-3 ">Send code to your email</h3>
+<form (ngSubmit)="sendemail(email)"  [formGroup]="email">
+    <label>Email:</label>
+    <input class="form-control mb-2" type="email" id="email" formControlName="email">
+    <div *ngIf="email.get('email')?.errors && email.get('email')?.touched" class="alert alert-danger" >
+        <p class="m-0" *ngIf="email.get('email')?.getError('required')">email is required</p>
+        <p class="m-0" *ngIf="email.get('email')?.getError('email')">email is InValid</p>
+    </div>
+    <div class="d-flex justify-content-between align-content-center">
+    <button [disabled]="email.status == 'INVALID'" type="submit" class="btn ms-auto d-block btn-success">
+        <span *ngIf="ooh == false"><i class="fas fa-spinner fa-spin"></i></span>
+       <span *ngIf="ooh == true" > find account</span>
+    </button>
+</div>
+<div *ngIf="erorr" class="alert alert-danger mt-4 text-center">
+    {{erorr}}
+    </div>
+    </form>
+</div>
+</div>

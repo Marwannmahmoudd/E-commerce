@@ -1,0 +1,15 @@
+<div class="container py-5 ">
+    <div class="row g-4">
+       
+            <owl-carousel-o [options]="customOptions">
+
+                <ng-container *ngFor="let data of category">
+                  <ng-template carouselSlide class="overflow-hidden" >
+                    <img height="250" [src]="data.image" class="w-100" >
+                    <h6 class="fw-bolder overflow-hidden text-center">{{data.name}}</h6>
+                  </ng-template>
+                </ng-container>
+            
+              </owl-carousel-o>
+    </div>
+</div>

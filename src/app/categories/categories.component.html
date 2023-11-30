@@ -1,0 +1,12 @@
+<div class="container py-5">
+    <div class="row g-4">
+       <div class="col-md-3 cursor-pointer" *ngFor="let data of category" [routerLink]="['/categoryproduct', data._id]">
+        <div class="productt shadow-sm">
+        <img height="300" class="w-100 rounded" [src]="data.image" >
+        <h3 class="fw-bolder  p-3 text-center text-main">{{data.name}}</h3>
+      </div>
+       </div>
+           
+                    
+    </div>
+</div>

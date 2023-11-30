@@ -1,0 +1,33 @@
+<div class="w-75 mx-auto py-4 pt-5">
+    <h4>Register now:</h4>
+    <form (ngSubmit)="formmmm(login)" [formGroup]="login">
+<label>Email:</label>
+<input class="form-control mb-2" type="email" id="email" formControlName="email">
+<div *ngIf="login.get('email')?.errors && login.get('email')?.touched" class="alert alert-danger" >
+    <p class="m-0" *ngIf="login.get('email')?.getError('required')">email is required</p>
+    <p class="m-0" *ngIf="login.get('email')?.getError('email')">email is InValid</p>
+</div>
+<label>Password:</label> 
+<input class="form-control mb-2 " [type]="show ? 'password' : 'text'" id="passowrd" formControlName="password" >
+
+<div *ngIf="login.get('password')?.errors && login.get('password')?.touched" class="alert alert-danger" >
+    <p class="m-0" *ngIf="login.get('password')?.getError('required')">password is required</p>
+    <p class="m-0" *ngIf="login.get('password')?.getError('pattern')">Minimum eight characters, at least one letter and one number:</p>
+</div>
+<input type="checkbox" id="showPassword" class="p-2 m-2" (click)="showpass()"/>
+<label for="showPassword">{{show ? 'Show' : 'Hide'}} password</label>
+<div class="d-flex justify-content-between align-items-center">
+    <div class="me-auto "><a routerLink="/sendemail" class="link-unstyled cursor-pointer text-main fw-bold text-danger ">Forget your passowrd ?</a></div>
+    <div class="">
+    <button [disabled]="login.status == 'INVALID'" type="submit" class="btn ms-auto d-block btn-success">
+        <span *ngIf="ooh == true"><i class="fas fa-spinner fa-spin"></i></span>
+       <span *ngIf="ooh == false" > login</span>
+    </button>
+</div>
+</div>
+<span class="fw-bold">Not member yet ?<a routerLink="/register" class="text-main ps-2 ds">sign in</a></span>
+<div *ngIf="erorr" class="alert alert-danger mt-4 text-center">
+{{erorr}}
+</div>
+    </form>
+</div>
